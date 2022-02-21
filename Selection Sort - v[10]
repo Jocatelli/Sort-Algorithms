@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+// Define uma constante
+#define MAX 10
+ 
+// Função de ordenação: Selection Sort 
+void selection_sort(int *a);
+ 
+// Main
+int main(int argc, char** argv)
+{
+ int i, vet[MAX];
+ 
+ // Lê MAX ou 10 valores
+ for(i = 0; i < MAX; i++)
+ {
+  printf("Digite um Valor: ");
+  scanf("%d", &vet[i]);
+ }
+ 
+ // Ordena os valores
+ selection_sort(vet);
+ 
+ // Imprime os valores ordenados
+ printf("Valores ordenados: ");
+ for(i = 0; i < MAX; i++)
+ {
+  printf("%d - ", vet[i]);
+ }
+ system("pause");
+ return 0;
+}
+ 
+// Função de Ordenação por Seleção
+void selection_sort(int *a)
+{
+ int i, j, k, t, troca;
+  
+ for(i = 0; i < MAX-1; i++)
+ {
+  troca = 0;
+  k = i;
+  t = a[i];
+  for(j = i+1; j < MAX; j++)
+  {
+   if(a[j] < t)
+   {
+    k = j;
+    t = a[j];
+    troca = 1;
+   }
+  }
+  if(troca)
+  {
+   a[k] = a[i];
+   a[i] = t;
+  }
+ }
+}
