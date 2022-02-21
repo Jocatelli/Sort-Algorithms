@@ -1,4 +1,4 @@
-void bubble_sort (int vetor[5, 3, 2, 4, 7, 1, 0, 6], int n) {
+void bubble_sort (int vetor[], int n) {
     int k, j, aux;
 
     for (k = 1; k < n; k++) {
@@ -27,7 +27,7 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese");
     printf("\n--------------------------------------------");
-    printf("\nEXEMPLO BUBBLE SORT CRESCENTE");
+    printf("\n BUBBLE SORT CRESCENTE PARA 5 NUMEROS");
     printf("\n--------------------------------------------");
     printf("\nInicializando o Array");
     for(i=0; i<5; i++)
@@ -37,7 +37,7 @@ int main()
     imprimir();
     printf("\n--------------------------------------------");
     printf("\nInserindo valores no Array\n");
-    for(i=0; i<5; i++)
+    for(i=0; i<5; i++) 
     {
         printf("\n|Posição %d |Digite um número: \t", i);
         scanf("%d%*c",&numero[i]);
