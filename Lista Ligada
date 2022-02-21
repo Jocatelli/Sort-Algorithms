@@ -1,1 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*criando os valores e os nós da lista */
+typedef struct No {
+    int valor;
+    struct No *proximo;
+} No;
+typedef struct {
+    No *inicio, *fim; /*cria os ponteiros do inicio e do fim da lista */
+    int tam;/* cria-se o inteiro que guarda o tamanho da lista */ 
+} Lista;
 
+// inserção no início da lista
+void inserirInicio(Lista *lista, int valor) {
+    No *novo = (No*)malloc(sizeof(No)); // cria um novo nó
+    novo->valor = valor;// (*novo).valor = valor
+
+    if(lista->inicio == NULL) { // a lista está vazia
+        novo->proximo = NULL;
+        lista->inicio = novo;
+        lista->fim = novo;
+    } else { // a lista não está vazia
+        novo->proximo = lista->inicio;
+        lista->inicio = novo;
+    }
+    lista->tam++;
+}
