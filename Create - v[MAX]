@@ -19,3 +19,23 @@ printf("%d ", v[i]);
 printf("\n");
 return 0;
 } /* retorna o vetor sem ordena-lo se quiser ordenar, precisa chamar uma função na linha 15*/
+
+/* Gerador de Vetor Aleatorio a partir do Tamanho que o usuario desejar:*/
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 100
+
+int main() {
+int v[MAX], aux[MAX], n, i;
+printf("Entre com o tamanho do vetor: ");
+scanf("%d", &n);
+if (n > MAX) {
+n = MAX;
+}
+
+/* Imprime o vetor */
+for (i = 0; i < n; i++)
+printf("%d ", rand() % 1000); /* coloquei 1000 mas pode ser mais, depende do tamanho do vetor */ /* no lugar do 1000 pode por n, mas ele repete valores */
+printf("\n");
+return 0;
+}
