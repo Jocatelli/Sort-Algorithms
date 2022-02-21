@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX /*Numero do tamanho do vetor*/ 100
+
+int main() {
+int v[MAX], aux[MAX], n, i;
+printf("Entre com o tamanho do vetor: ");
+scanf("%d", &n);
+if (n > MAX) {
+n = MAX;
+}
+printf("Entre com os %d valores inteiros:\n", n);
+for (i = 0; i < n; i++)
+scanf("%d", &v[i]);
+/* Se quiser imprimir o vetor ordenado, precisa chamar a função de ordenação nessa linha */ 
+/* Imprime o vetor */
+for (i = 0; i < n; i++)
+printf("%d ", v[i]);
+printf("\n");
+return 0;
+} /* retorna o vetor sem ordena-lo se quiser ordenar, precisa chamar uma função na linha 15*/
