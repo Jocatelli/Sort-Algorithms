@@ -13,12 +13,11 @@ int main(int argc, char** argv)
 {
  int i, vet[MAX];
  
- // Lê MAX ou 10 valores
- // Read MAX or 10 values
+ // Lê MAX ou neste caso 10 valores
  for(i = 0; i < MAX; i++)
  {
   printf("Digite um valor: ");
-  scanf("%d", &vet[i]);
+  scanf("%d", &vet[i]); // Usuario coloca os valores a serem ordenados 
  }
  
  // Ordena os valores
@@ -41,16 +40,16 @@ void quick_sort(int *a, int esq, int dir) {
      
     i = esq;
     j = dir;
-    x = a[(esq + dir) / 2];
+    x = a[(esq + dir) / 2]; // aqui é o nosso pivô
      
     while(i <= j) {
-        while(a[i] < x && i < dir) {
+        while(a[i] < x && i < dir) { //enquanto o elemento a esquerda for menor que o pivô
             i++;
         }
         while(a[j] > x && j > esq) {
             j--;
         }
-        if(i <= j) {
+        if(i <= j) { // quando as posiçoes de esquerda e direita do pivô se encontrarem, começa a ordenar os valores corretamente.
             y = a[i];
             a[i] = a[j];
             a[j] = y;
