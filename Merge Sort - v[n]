@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 100
+void merge(int v[], int aux[], int inicio1, int inicio2, int fim2) {
+int i = inicio1, j = inicio2, fim1 = inicio2 - 1, k = 0;
+/* Enquanto existirem elementos nas duas partes...*/
+while ((i <= fim1) && (j <= fim2))
+/* ... verifica qual dos dois elementos iniciais eh o menor */
+if (v[i] < v[j])
+aux[k++] = v[i++]; /* ou copia o elemento inicial da primeira parte */
+else
+aux[k++] = v[j++]; /* se não copia o elemento inicial da segunda parte */
+while (i <= fim1) /* Se ainda existir elementos na primeira parte ... */
+aux[k++] = v[i++]; /* ... copia os elementos restantes no vetor auxiliar */
+while (j <= fim2) /* Se ainda existir elementos na segunda parte ... */
+aux[k++] = v[j++]; /* ... copia os elementos restantes no vetor auxiliar */
+for (i = 0; i < k; i++) /* Copia os elementos do vetor auxiliar ... */
+v[i + inicio1] = aux[i]; /* ... de volta para o vetor original */
+}
+
+void mergesort(int v[], int aux[], int inicio, int fim) {
+int meio = (inicio + fim) / 2;
+/* Se existirem pelo menos dois elementos para serem ordenados... */
+if (inicio < fim) {
+mergesort(v, aux, inicio, meio); /* Ordena a primeira parte */
+mergesort(v, aux, meio + 1, fim); /* Ordena a segunda parte */
+merge(v, aux, inicio, meio + 1, fim); /* Intercala as duas partes */
+}
+}
+
+int main() {
+int v[MAX], aux[MAX], n, i; /* diferente dos outros nesse vc pode criar um vetor maior do que 10*/
+printf("Entre com o tamanho do vetor: ");
+scanf("%d", &n);
+if (n > MAX) {
+n = MAX;
+}
+printf("Entre com os %d valores inteiros:\n", n);
+for (i = 0; i < n; i++)
+scanf("%d", &v[i]);
+mergesort(v, aux, 0, n - 1);
+/* Imprime o vetor ordenado */
+for (i = 0; i < n; i++)
+printf("%d ", v[i]);
+printf("\n");
+return 0;
+}
