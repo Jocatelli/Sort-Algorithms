@@ -1,0 +1,70 @@
+int k, j, aux;
+
+   for (k = 1; k <= n - 1; k++){
+      printf("\n[%d] ", k);
+
+      aux = vetor[k];
+      j = k - 1;
+      while (j >= 0 && aux < vetor[j]) { // enquanto o termo de v[j] for maior que aux e aux maior ou igual a j 
+         printf("%d, ", j);
+
+         vetor[j+1] = vetor[j];
+         j--;
+      }
+
+      vetor[j+1] = aux; //atribui o valor de j+1 ao vetor aux
+   }
+   
+   -------------
+   #include <stdio.h>
+#include <stdlib.h>
+ 
+// Define uma constante
+// Define a constant
+#define MAX 10
+ 
+//Função de ordenação: INSERTION SORT
+
+void insertion_sort(int *a);
+ 
+// Main 
+int main(int argc, char** argv)
+{
+ int i, vet[MAX];
+ 
+ // Lê MAX ou nesse caso 10 valores
+ for(i = 0; i < MAX; i++)
+ {
+  printf("Digite um valor: ");
+  scanf("%d", &vet[i]);
+ }
+ 
+ // Ordena os valores
+ insertion_sort(vet);
+ 
+ // Imprime os valores ordenados
+ printf("Valores ordenados: ");
+ for(i = 0; i < MAX; i++)
+ {
+  printf("%d - ", vet[i]);
+ }
+ system("pause");
+ return 0;
+}
+ 
+// Insertion sort
+void insertion_sort(int *a)
+{
+ int i, j, t; // t é meu vetor aux
+  
+ for(i = 1; i < MAX; i++)
+ {
+  t = a[i];
+  for(j = i-1; j >= 0 && t < a[j]; j--)
+  {
+   a[j+1] = a[j];
+  }
+  a[j+1] = t;
+ }
+}
+   
